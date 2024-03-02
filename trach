@@ -1,0 +1,205 @@
+class idk extends SearchDelegate {
+  List<String> places = [
+    'Elbouni',
+    'Sidi Amar',
+    'kouba',
+    'Ouid Forcha',
+    'La Colonne',
+    'Les Almonds',
+    'Kharaza',
+  ];
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    IconButton(
+      icon: Icon(Icons.clear),
+      onPressed: () {
+        query = '';
+      },
+    );
+  }
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          close(context, null);
+        },
+        icon: Icon(Icons.arrow_back));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    List<String> matchQuery = [];
+    for (var plc in places) {
+      if (plc.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(plc);
+      }
+    }
+    return ListView.builder(
+      itemCount: matchQuery.length,
+      itemBuilder: (context, i) {
+        var result = matchQuery[i];
+        return ListTile(
+          title: Text(result),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    List<String> matchQuery = [];
+    for (var plc in places) {
+      if (plc.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(plc);
+      }
+    }
+    return ListView.builder(
+      itemCount: matchQuery.length,
+      itemBuilder: (context, i) {
+        var result = matchQuery[i];
+        return ListTile(
+          title: Text(result),
+        );
+      },
+    );
+  }
+}
+
+
+
+
+bottom: TabBar(tabs: [
+                  Tab(child: Text("Today")),
+                  Tab(child: Text("Tomorrow")),
+                  Tab(child: Text("5 Days")),
+                ]),
+
+
+
+
+
+                home: DefaultTabController(
+            length: 3,
+            child: Scaffold(
+              appBar: AppBar(
+                title: s
+                    ? Container(
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 183, 180, 180),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: TextField(
+                          controller: l,
+                          onChanged: (Context) {},
+                          decoration: const InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(16, 20, 16, 12),
+                              hintStyle: TextStyle(color: Colors.black),
+                              border: InputBorder.none,
+                              hintText: 'your location...'),
+                        ),
+                      )
+                    : Text("your location ..."),
+                actions: [
+                  IconButton(
+                      onPressed: () {
+                        s = !s;
+                        showSearch(context: context, delegate: idk());
+                      },
+                      icon: const Icon(
+                        Icons.search,
+                      ))
+                ],
+                bottom: TabBar(tabs: [
+                  Tab(child: Text("Today")),
+                  Tab(child: Text("Tomorrow")),
+                  Tab(child: Text("5 Days")),
+                ]),
+              ),
+            )));
+  }
+}
+
+class idk extends SearchDelegate {
+  List<String> places = [
+    'Elbouni',
+    'Sidi Amar',
+    'kouba',
+    'Ouid Forcha',
+    'La Colonne',
+    'Les Almonds',
+    'Kharaza',
+  ];
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    IconButton(
+      icon: Icon(Icons.clear),
+      onPressed: () {
+        query = '';
+      },
+    );
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          close(context, null);
+        },
+        icon: Icon(Icons.arrow_back));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    List<String> matchQuery = [];
+    for (var plc in places) {
+      if (plc.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(plc);
+      }
+    }
+    return ListView.builder(
+      itemCount: matchQuery.length,
+      itemBuilder: (context, i) {
+        var result = matchQuery[i];
+        return ListTile(
+          title: Text(result),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    List<String> matchQuery = [];
+    for (var plc in places) {
+      if (plc.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(plc);
+      }
+    }
+    return ListView.builder(
+      itemCount: matchQuery.length,
+      itemBuilder: (context, i) {
+        var result = matchQuery[i];
+        return ListTile(
+          title: Text(result),
+        );
+      },
+    );
+  }
+}
+
+
+
+
+
+
+Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("images/sun.jpg"), fit: BoxFit.cover)),
+          child: Center(child: Text("welcom")),
+        ),
+
